@@ -2,10 +2,10 @@ import React from 'react';
 import './ProductItem.scss';
 
 export default function ProductItem() {
-  const {product} = this.props;
+  const {product, addToCart} = this.props;
   return (
     <div className="ProductItem">
-      <div className="card">
+      {/* <div className="card">
         <h5 className="card__title">{product.title}</h5>
         <label className="description">Description:</label>
         <p>{product.description}</p>
@@ -16,7 +16,7 @@ export default function ProductItem() {
             <FontAwesomeIcon icon='cart-plus'/>
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 } 
