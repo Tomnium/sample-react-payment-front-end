@@ -1,22 +1,26 @@
 import React from 'react';
 import './ProductItem.scss';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faCartPlus);
 
 export default function ProductItem() {
-  const {product, addToCart} = this.props;
   return (
     <div className="ProductItem">
-      {/* <div className="card">
-        <h5 className="card__title">{product.title}</h5>
+      <div className="card-content">
+        <h5 className="card-content__title">Product</h5>
         <label className="description">Description:</label>
-        <p>{product.description}</p>
+        <p></p>
         <label className="description">Price:</label>
-        <p>{product.price}₴</p>
-        <div className="card__button-wrapper">
-          <button className="card__button" onClick={() => {addToCart(product.id)}}>
+        <p>₴</p>
+        <div className="d-flex flex-row-reverse">
+          <button className="btn btn-success">
             <FontAwesomeIcon icon='cart-plus'/>
           </button>
         </div>
-      </div> */}
+      </div>
     </div>
   )
 } 

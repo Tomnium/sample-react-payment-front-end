@@ -1,1 +1,15 @@
 @import "../../styles/pxrem/pxrem.scss";
+
+.ProductList {
+  width: 80%;
+}
+
+.ProductList__title {
+  padding: rem(70) 0 0 rem(20);
+}
+
+.ProductList__items {
+  display: flex;
+  justify-content: space-between;
+  margin-top: rem(50);
+}
