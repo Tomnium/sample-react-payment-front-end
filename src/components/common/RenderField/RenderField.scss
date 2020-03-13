@@ -1,3 +1,11 @@
+@import "../../../styles/pxrem/pxrem.scss";
+
 .fieldTitle span {
   color: red;
+}
+
+.errorMsg {
+  color: red;
+  font-weight: 200;
+  font-size: rem(14);
 }

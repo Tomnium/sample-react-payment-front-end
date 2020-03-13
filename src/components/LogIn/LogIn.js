@@ -1,11 +1,12 @@
 import React from 'react';
 import './LogIn.scss';
 import { Field, reduxForm } from 'redux-form';
-
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import RenderField from '../common/RenderField/RenderField';
+import { validate } from './validation';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faSignInAlt);
 
@@ -49,6 +50,7 @@ let LogIn = () => {
 
 LogIn = reduxForm ({
   form: 'login',
+  validate
 }) (LogIn);
 
 export default LogIn;
