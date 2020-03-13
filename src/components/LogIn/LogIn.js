@@ -1,15 +1,15 @@
 import React from 'react';
 import './LogIn.scss';
-import {Field, reduxForm} from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 
-import {library} from '@fortawesome/fontawesome-svg-core'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faSignInAlt} from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import RenderField from '../common/RenderField/RenderField';
 
 library.add(faSignInAlt);
 
-function LogIn() {
+let LogIn = () => {
   return(
     <div className="LogIn">
       <div className='card-title'>Log In</div>
