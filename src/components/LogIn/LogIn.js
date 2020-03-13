@@ -2,7 +2,7 @@ import React from 'react';
 import './LogIn.scss';
 import { Field, reduxForm } from 'redux-form';
 import RenderField from '../common/RenderField/RenderField';
-import { validate } from './validation';
+import { required, email, password } from './validation';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,6 +23,7 @@ let LogIn = () => {
             placeholder="Email"
             label="Email"
             className="form-control field"
+            validate={[required, email]}
           />
         </div>
         <div className="form-group">
@@ -33,6 +34,7 @@ let LogIn = () => {
             placeholder="Password"
             label="Password"
             className="form-control field"
+            validate={[required, password]}
           />
         </div>
         <div className='d-flex flex-row-reverse'>
@@ -50,7 +52,6 @@ let LogIn = () => {
 
 LogIn = reduxForm ({
   form: 'login',
-  validate
 }) (LogIn);
 
 export default LogIn;
