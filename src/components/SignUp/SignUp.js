@@ -1,5 +1,6 @@
 import React from 'react';
 import './SignUp.scss';
+import { validate } from './validation';
 import { reduxForm, Field } from "redux-form";
 import RenderField from "../common/RenderField/RenderField";
 
@@ -58,6 +59,7 @@ let SignUp = () => {
 
 SignUp = reduxForm ({
   form: 'registration',
+  validate
 }) (SignUp);
 
 export default SignUp;
