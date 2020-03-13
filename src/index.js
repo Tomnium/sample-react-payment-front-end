@@ -3,7 +3,19 @@ import ReactDOM from 'react-dom';
 import './styles/index.scss';
 import App from './components/App/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import {reducer as formReducer} from 'redux-form';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const reducers = {
+  form: formReducer
+};
+const rootReducer = combineReducers(reducers);
+const store = createStore(rootReducer);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CartList() {
+const CartList = props => {
   return (
     <div className="CartList">
 

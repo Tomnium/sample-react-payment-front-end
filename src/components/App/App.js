@@ -11,8 +11,8 @@ function App() {
         <Navbar />
         <div className="main-wrapper">
           <Route exact path='/' component={ProductList}/>
-          <Route exact path='/signIn' component={LogIn}/>
-          <Route exact path='/signUp' component={SignUp}/>
+          <Route exact path='/sign-in' component={LogIn}/>
+          <Route exact path='/sign-up' component={SignUp}/>
           <Route exact path='/cart' component={CartList}/>
         </div>
       </div>
