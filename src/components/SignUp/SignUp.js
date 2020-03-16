@@ -1,8 +1,8 @@
 import React from 'react';
 import './SignUp.scss';
-import { validate } from './validation';
 import { reduxForm, Field } from "redux-form";
 import RenderField from "../common/RenderField/RenderField";
+import { required, password, username, email } from './validation';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,6 +22,7 @@ let SignUp = () => {
             component={RenderField}
             type="text"
             className="form-control field"
+            validate={[required, username]}
           />
         </div>
         <div className="form-group">
@@ -32,6 +33,7 @@ let SignUp = () => {
             placeholder="Email"
             label="Email"
             className="form-control field"
+            validate={[required, email]}
           />
         </div>
         <div className="form-group">
@@ -42,6 +44,7 @@ let SignUp = () => {
             placeholder="Password"
             label="Password"
             className="form-control field"
+            validate={[required, password]}
           />
         </div>
         <div className='d-flex flex-row-reverse'>
@@ -58,8 +61,7 @@ let SignUp = () => {
 }
 
 SignUp = reduxForm ({
-  form: 'registration',
-  validate
+  form: 'registration'
 }) (SignUp);
 
 export default SignUp;
