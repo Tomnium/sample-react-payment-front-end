@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import { ProductList } from '../../components';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { getProducts } from '../../redux/actions';
 
 const HomeContainer = () => {
-  // const [data, setData] = useState({ products: [] });
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const result = await axios(
-  //       'http://localhost:3000/api/product/getAll',
-  //     );
-  //     setData(result.data);
-  //   };
-  //   fetchData();
-  // }, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProducts())
+  }, []);
 
   return (
     <ProductList />

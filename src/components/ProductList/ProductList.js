@@ -1,6 +1,7 @@
 import React from 'react';
 import './ProductList.scss';
 import ProductItem from '../ProductItem/ProductItem';
+import { useSelector } from 'react-redux';
 
 export default function ProductList() {
   return (
