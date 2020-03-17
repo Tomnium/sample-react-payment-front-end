@@ -1,4 +1,5 @@
 import { HTTP_ACTION } from '../constants/constants';
+import axios from 'axios';
 
 export const httpMiddleware = store => next => action => {
   if (action[HTTP_ACTION]) {
@@ -13,7 +14,7 @@ export const httpMiddleware = store => next => action => {
       type: actionInfo.type + "_REQUESTED"
     });
     
-    fetch(actionInfo.endpoint, fetchOptions)
+    axios.get(actionInfo.endpoint, fetchOptions)
       .then(response => response.json())
       .then(data => next({
         type: actionInfo.type + "_RECEIVED",
