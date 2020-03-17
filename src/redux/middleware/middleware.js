@@ -19,13 +19,12 @@ export const httpMiddleware = store => next => action => {
         type: actionInfo.type + "_RECEIVED",
         payload: data
       }))
-      .catch(error => {
-        // console.log({error})
+      .catch(error => 
         next({
           type: actionInfo.type + "_FAILED",
           payload: error
        })
-      });
+      );
   } else {
     return next(action);
   }
