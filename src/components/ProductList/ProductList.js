@@ -4,14 +4,23 @@ import ProductItem from '../ProductItem/ProductItem';
 import { useSelector } from 'react-redux';
 
 export default function ProductList() {
+  const products = useSelector(state => state.products.products);
   return (
     <div className="ProductList">
       <h3 className="ProductList__title">Products:</h3>
       <div className="ProductList__items">
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
+        {
+          products ?
+          products.map(product => {
+            return <ProductItem 
+              key={product._id}  
+              title={product.title} 
+              description={product.description}
+              price={product.price}
+              />
+          })
+          : null
+        }
       </div>
     </div>
   )
