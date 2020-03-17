@@ -1,12 +1,15 @@
 import React from 'react';
 import './ProductItem.scss';
+import { useSelector } from 'react-redux';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faCartPlus);
 
-export default function ProductItem() {
+const ProductItem = props => {
+
   return (
     <div className="ProductItem">
       <div className="card-content">
@@ -23,4 +26,6 @@ export default function ProductItem() {
       </div>
     </div>
   )
-} 
+}
+
+export default ProductItem;

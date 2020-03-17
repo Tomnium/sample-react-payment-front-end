@@ -1,21 +1,21 @@
-const initialState = {
+export const initialState = {
   products: []
 }
 
-const productReducer = (state = initialState, action) => {
+export const productReducer = (state = initialState, action) => {
   switch(action.type) {
-    case('FETCH_PRODUCTS_START'):
+    case('PRODUCTS_REQUESTED'):
       return {
         ...state,
         isFetchingProducts: true
       }
-    case('FETCH_PRODUCTS_SUCCESS'):
+    case('PRODUCTS_RECEIVED'):
       return {
         ...state,
         isFetchingProducts:false,
         products: action.result.data
       }
-    case('FETCH_PRODUCTS_FAIL'):
+    case('PRODUCTS_FAILED'):
       return {
         ...state,
         isFetchingProducts:false
@@ -24,5 +24,3 @@ const productReducer = (state = initialState, action) => {
       return state
   }
 }
-
-export default productReducer;

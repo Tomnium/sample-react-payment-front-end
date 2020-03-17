@@ -10,11 +10,11 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faUserCircle);
 
-let SignUp = () => {
+let SignUp = props => {
   return(
     <div className="SignUp">
       <div className='card-title'>Registration</div>
-      <form>
+      <form onSubmit={props.handleSubmit}>
         <div className="form-group">
           <Field
             label="Username"

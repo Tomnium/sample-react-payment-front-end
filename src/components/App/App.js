@@ -2,7 +2,8 @@ import React from 'react';
 import './App.scss';
 import Navbar from '../Navbar/Navbar.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { ProductList, CartList, LogIn, SignUp } from '../index';
+import { CartList, LogIn } from '../index';
+import { SignUpContainer, HomeContainer } from '../../containers';
 
 function App() {
   return (
@@ -10,9 +11,9 @@ function App() {
       <div className="App">
         <Navbar />
         <div className="main-wrapper">
-          <Route exact path='/' component={ProductList}/>
+          <Route exact path='/' component={HomeContainer}/>
           <Route exact path='/sign-in' component={LogIn}/>
-          <Route exact path='/sign-up' component={SignUp}/>
+          <Route exact path='/sign-up' component={SignUpContainer}/>
           <Route exact path='/cart' component={CartList}/>
         </div>
       </div>
