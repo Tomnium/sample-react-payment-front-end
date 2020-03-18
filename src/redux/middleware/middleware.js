@@ -15,7 +15,6 @@ export const httpMiddleware = store => next => action => {
     });
     
     axios.get(actionInfo.endpoint, fetchOptions)
-      .then(response => response.json())
       .then(data => next({
         type: actionInfo.type + "_RECEIVED",
         payload: data

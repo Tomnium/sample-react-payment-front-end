@@ -10,10 +10,11 @@ export const productReducer = (state = initialState, action) => {
         isFetchingProducts: true
       }
     case('PRODUCTS_RECEIVED'):
+    console.log(action);
       return {
         ...state,
         isFetchingProducts: false,
-        products: action.payload
+        products: action.payload.data
       }
     case('PRODUCTS_FAILED'):
       return {
