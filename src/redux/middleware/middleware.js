@@ -1,7 +1,7 @@
 import { HTTP_ACTION } from '../constants/constants';
 import axios from 'axios';
 
-export const httpMiddleware = store => next => action => {
+export const httpMiddleware = client => next => action => {
   if (action[HTTP_ACTION]) {
     const actionInfo = action[HTTP_ACTION];
     const fetchOptions = {
