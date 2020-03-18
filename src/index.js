@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { reducer as formReducer } from 'redux-form';
 import { productReducer, initialState } from './redux/reducers/productReducer';
 import { httpMiddleware } from './redux/middleware/middleware';
+import logger from 'redux-logger';
 
 const reducers = {
   form: formReducer,
@@ -21,7 +22,7 @@ const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
 
 const rootReducer = combineReducers(reducers);
-const store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(httpMiddleware)));
+const store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(httpMiddleware, logger)));
 
 ReactDOM.render(
   <Provider store={store}>

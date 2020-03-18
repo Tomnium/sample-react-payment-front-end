@@ -10,7 +10,6 @@ export const productReducer = (state = initialState, action) => {
         isFetchingProducts: true
       }
     case('PRODUCTS_RECEIVED'):
-    console.log(action);
       return {
         ...state,
         isFetchingProducts: false,
