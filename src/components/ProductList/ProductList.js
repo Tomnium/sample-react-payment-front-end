@@ -17,6 +17,7 @@ export default function ProductList() {
               title={product.title} 
               description={product.description}
               price={product.price}
+              id={product._id}
               />
           })
           : null

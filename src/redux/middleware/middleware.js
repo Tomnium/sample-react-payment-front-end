@@ -9,22 +9,21 @@ export const httpMiddleware = store => next => action => {
       headers: actionInfo.headers,
       body: actionInfo.payload || null
     };
-    
     next({
       type: actionInfo.type + "_REQUESTED"
     });
     
     axios.get(actionInfo.endpoint, fetchOptions)
-      .then(data => next({
-        type: actionInfo.type + "_RECEIVED",
-        payload: data
-      }))
-      .catch(error => 
-        next({
-          type: actionInfo.type + "_FAILED",
-          payload: error
-       })
-      );
+    .then(data => next({
+      type: actionInfo.type + "_RECEIVED",
+      payload: data
+    }))
+    .catch(error => 
+      next({
+        type: actionInfo.type + "_FAILED",
+        payload: error
+      })
+    );
   } else {
     return next(action);
   }
