@@ -1,0 +1,18 @@
+@import "../../styles/pxrem/pxrem.scss";
+
+.circle {
+  position: absolute;
+  top: rem(12);
+  color: white;
+  background-color: red;
+  width: rem(20);
+  height: rem(20);
+  border-radius: 50%;
+  line-height: rem(20);
+  font-weight: bold;
+  font-size: rem(12);
+  text-align: center;
+  cursor: pointer;
+  z-index: 9;
+  box-shadow: rem(3) rem(3) rem(2) #888888;
+}

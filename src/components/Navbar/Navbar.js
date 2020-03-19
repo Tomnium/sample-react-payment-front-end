@@ -1,6 +1,8 @@
 import React from 'react';
 import './Navbar.scss';
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faSignInAlt, faUserCircle, faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +10,14 @@ import { faShoppingCart, faSignInAlt, faUserCircle, faSignOutAlt} from '@fortawe
 library.add(faShoppingCart, faSignInAlt, faUserCircle, faSignOutAlt);
 
 function Navbar() {
+  const idList = useSelector(state => state.cart.idList);
+
+  const counter = () => {
+    let amount = 0;
+    Object.keys(idList).map(id=>{ if(idList[id]) amount += idList[id]});
+    return amount;
+  }
+
   return (
     <div className="Navbar">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,7 +34,7 @@ function Navbar() {
               <Link className="nav-link" to={`/sign-up`}>SignUp <FontAwesomeIcon icon='user-circle'/></Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={`/cart`}><FontAwesomeIcon icon='shopping-cart'/></Link>
+              <Link className="nav-link" to={`/cart`}><FontAwesomeIcon icon='shopping-cart'/>{counter()?<span className="circle">{counter()}</span>:null}</Link>
             </li>
           </ul>
         </div>
