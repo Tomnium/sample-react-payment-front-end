@@ -7,11 +7,10 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { reducer as formReducer } from 'redux-form';
 import { productReducer } from './redux/reducers/productReducer';
-import { httpMiddleware } from './redux/middleware/middleware';
 import logger from 'redux-logger';
 import { cartReducer } from './redux/reducers/cartReducer';
-import { instance } from './helpers/apiClient';
 import thunk from 'redux-thunk';
+import promise from 'redux-promise-middleware';
 
 const reducers = {
   form: formReducer,
@@ -27,7 +26,7 @@ const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk, httpMiddleware(instance), logger)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk, promise, logger)));
 
 ReactDOM.render(
   <Provider store={store}>
