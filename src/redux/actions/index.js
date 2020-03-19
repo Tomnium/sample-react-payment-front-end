@@ -1,29 +1,16 @@
-import { PRODUCTS, ADD_TO_CART } from '../constants/constants';
+import { PRODUCTS } from '../constants/constants';
+import { getProducts } from '../../services/services';
 
-export function httpAction(action) {
-  const httpActionTemplate = {
-    type: PRODUCTS,
-    endpoint: null,
-    verb: "GET",
-    payload: null,
-    headers: []
-  };
-  
+export function productsRequest() {
   return {
-    HTTP_ACTION: Object.assign({}, httpActionTemplate, action)
-  };
-}
-
-export function getProducts() {
-  return httpAction({
     type: PRODUCTS,
-    endpoint: "http://localhost:3000/api/product/getAll"
-  });
+    payload: getProducts()
+  }
 }
 
-export function addToCart(productId){
-  return {
-      type: ADD_TO_CART,
-      result: productId
-  };
-}
+// export function addToCart(productId){
+//   return {
+//       type: ADD_TO_CART,
+//       result: productId
+//   };
+// }

@@ -1,9 +1,6 @@
 export const HTTP_ACTION = 'HTTP_ACTION';
 
 export const PRODUCTS = 'PRODUCTS';
-export const PRODUCTS_REQUESTED = 'PRODUCTS_REQUESTED';
-export const PRODUCTS_RECEIVED = 'PRODUCTS_RECEIVED';
-export const PRODUCTS_FAILED = 'PRODUCTS_FAILED';
 
 export const ADD_TO_CART = 'ADD_TO_CART';
 

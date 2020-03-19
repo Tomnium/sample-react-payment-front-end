@@ -1,24 +1,25 @@
-export const initialState = {
+import { ActionType } from 'redux-promise-middleware';
+import { PRODUCTS } from '../constants/constants';
+
+const initialState = {
   products: []
 }
 
 export const productReducer = (state = initialState, action) => {
   switch(action.type) {
-    case('PRODUCTS_REQUESTED'):
+    case `${PRODUCTS}_${ActionType.Pending}`:
       return {
-        ...state,
-        isFetchingProducts: true
+        ...state
       }
-    case('PRODUCTS_RECEIVED'):
+    case `${PRODUCTS}_${ActionType.Fulfilled}`:
+      console.log({action})
       return {
         ...state,
-        isFetchingProducts: false,
         products: action.payload.data
       }
-    case('PRODUCTS_FAILED'):
+    case `${PRODUCTS}_${ActionType.Rejected}`:
       return {
-        ...state,
-        isFetchingProducts: false 
+        ...state
       }
     default:
       return state
