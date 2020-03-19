@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { ProductList } from '../../components';
 import { useDispatch } from 'react-redux';
-import { getProducts } from '../../redux/actions';
+import { productsRequest } from '../../redux/actions/index';
 
 const HomeContainer = () => {
-  const dispatch = useDispatch();
+const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProducts())
+    dispatch(productsRequest())
   }, []);
 
   return (
