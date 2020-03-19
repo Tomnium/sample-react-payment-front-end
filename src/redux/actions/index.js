@@ -1,5 +1,5 @@
-import { PRODUCTS, ADD_TO_CART } from '../constants/constants';
-import { getProducts } from '../../services/services';
+import { PRODUCTS, ADD_TO_CART, CART_PRODUCTS } from '../constants/constants';
+import { getProducts, getCartProducts } from '../../services/services';
 
 export function productsRequest() {
   return {
@@ -13,4 +13,11 @@ export function addToCart(productId){
       type: ADD_TO_CART,
       result: productId
   };
+}
+
+export function getCartProducts(idList) {
+  return {
+    type: CART_PRODUCTS,
+    payload: getProductsFromCart(idList)
+  }
 }
