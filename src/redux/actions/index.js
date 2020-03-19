@@ -1,4 +1,4 @@
-import { PRODUCTS } from '../constants/constants';
+import { PRODUCTS, ADD_TO_CART } from '../constants/constants';
 import { getProducts } from '../../services/services';
 
 export function productsRequest() {
@@ -8,9 +8,9 @@ export function productsRequest() {
   }
 }
 
-// export function addToCart(productId){
-//   return {
-//       type: ADD_TO_CART,
-//       result: productId
-//   };
-// }
+export function addToCart(productId){
+  return {
+      type: ADD_TO_CART,
+      result: productId
+  };
+}
