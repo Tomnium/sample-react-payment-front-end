@@ -11,7 +11,7 @@ export function productsRequest() {
 export function addToCart(productId){
   return {
       type: ADD_TO_CART,
-      result: productId
+      payload: productId
   };
 }
 

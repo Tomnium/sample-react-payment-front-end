@@ -1,6 +1,8 @@
 import { ActionType } from 'redux-promise-middleware';
 import { ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART } from '../constants/constants';
 
+import { saveCart } from '../../helpers/cartStorage';
+
 const initialState={
   idList: {}
 }
@@ -8,9 +10,11 @@ const initialState={
 export function cartReducer(state = initialState, action) {
   switch (action.type){
     case (ADD_TO_CART): {
+      let idList = {...state.idList, [action.payload]: (state.idList[action.payload] || 0) + 1};
+      saveCart(idList);
       return {
         ...state,
-        idList:{...state.idList, [action.result]: (state.idList[action.result] || 0) + 1}
+        idList: idList
       }
     }
     case (DELETE_FROM_CART): {

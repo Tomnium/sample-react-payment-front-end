@@ -19,7 +19,7 @@ const CartItem = props => {
         <td>{props.product.quantity}</td>
         <td>
           <button className='btn btn-outline-danger' onClick={() => dispatch(deleteFromCart(props.id))} style={{borderWidth:0}}>
-          <FontAwesomeIcon icon='trash-alt'/>
+            <FontAwesomeIcon icon='trash-alt'/>
           </button>
         </td>
       </tr>
