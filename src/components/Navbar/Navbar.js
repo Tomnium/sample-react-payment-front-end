@@ -14,7 +14,12 @@ function Navbar() {
 
   const counter = () => {
     let amount = 0;
-    Object.keys(idList).map(id=>{ if(idList[id]) amount += idList[id]});
+    Object.keys(idList).map( id => { 
+      if(idList[id]) {
+        amount += idList[id]
+      }
+      return null
+    });
     return amount;
   }
 

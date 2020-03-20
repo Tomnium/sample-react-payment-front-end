@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProductItem.scss';
 import { addToCart } from '../../redux/actions';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

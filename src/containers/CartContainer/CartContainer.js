@@ -2,6 +2,7 @@ import React, { useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CartList from '../../components/CartList/CartList';
 import { getCartProducts } from '../../redux/actions';
+import {withRouter} from 'react-router';
 
 const CartContainer = () => {
   const productsId = useSelector(state => state.cart.idList);
@@ -10,7 +11,7 @@ const CartContainer = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCartProducts(productsId))
-  }, []);
+  }, [dispatch, productsId]);
   return (
     <Fragment>
       {
@@ -22,4 +23,4 @@ const CartContainer = () => {
   )
 }
 
-export default CartContainer;
+export default withRouter(CartContainer);

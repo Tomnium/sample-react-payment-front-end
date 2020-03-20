@@ -7,7 +7,7 @@ const HomeContainer = () => {
 const dispatch = useDispatch();
   useEffect(() => {
     dispatch(productsRequest())
-  }, []);
+  }, [dispatch]);
 
   return (
     <ProductList />
