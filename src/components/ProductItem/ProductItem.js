@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './ProductItem.scss';
 import { addToCart } from '../../redux/actions';
 import { useDispatch } from 'react-redux';

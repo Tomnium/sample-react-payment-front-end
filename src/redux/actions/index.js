@@ -1,5 +1,5 @@
 import { PRODUCTS, ADD_TO_CART, CART_PRODUCTS } from '../constants/constants';
-import { getProducts, getCartProducts } from '../../services/services';
+import { getProducts, getProductsFromCart } from '../../services/services';
 
 export function productsRequest() {
   return {

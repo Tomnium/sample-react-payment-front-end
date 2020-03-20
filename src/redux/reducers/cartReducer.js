@@ -1,5 +1,5 @@
 import { ActionType } from 'redux-promise-middleware';
-import { ADD_TO_CART } from '../constants/constants';
+import { ADD_TO_CART, CART_PRODUCTS } from '../constants/constants';
 
 const initialState={
   idList: {}

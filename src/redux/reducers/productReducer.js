@@ -12,7 +12,6 @@ export const productReducer = (state = initialState, action) => {
         ...state
       }
     case `${PRODUCTS}_${ActionType.Fulfilled}`:
-      console.log({action})
       return {
         ...state,
         products: action.payload.data

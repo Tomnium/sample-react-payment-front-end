@@ -5,5 +5,8 @@ export const getProducts = () => {
 }
 
 export const getProductsFromCart = idList => {
-  return apiClient.post('api/product/getCarts', idList)
+  let body = {
+    idList
+  }
+  return apiClient.post('api/product/getCarts', body)
 }
