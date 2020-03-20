@@ -19,9 +19,11 @@ export function cartReducer(state = initialState, action) {
     }
     case (DELETE_FROM_CART): {
       let deleteProduct = state.cartProducts.find(p=>p.product._id === action.payload);
+      let idList = {...state.idList, [action.payload]: undefined};
+      saveCart(idList);
       return {
         ...state,
-        idList: {...state.idList, [action.payload]: undefined},
+        idList: idList,
         totalPrice: state.totalPrice-(deleteProduct.product.price*deleteProduct.quantity),
         cartProducts: state.cartProducts.filter(product=>product!==deleteProduct)
       }
