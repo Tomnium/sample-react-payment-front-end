@@ -18,7 +18,7 @@ const CartList = props => {
         </thead>
         <tbody>
           {props.products ? props.products.map((product, index) => {
-            return <CartItem key={index} product={product} />
+            return <CartItem key={index} product={product} id={product.product._id} />
           }) : null}
         </tbody>
       </table>

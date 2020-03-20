@@ -1,4 +1,4 @@
-import { PRODUCTS, ADD_TO_CART, CART_PRODUCTS } from '../constants/constants';
+import { PRODUCTS, ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART } from '../constants/constants';
 import { getProducts, getProductsFromCart } from '../../services/services';
 
 export function productsRequest() {
@@ -19,5 +19,12 @@ export function getCartProducts(idList) {
   return {
     type: CART_PRODUCTS,
     payload: getProductsFromCart(idList)
+  }
+}
+
+export function deleteFromCart(id) {
+  return {
+    type: DELETE_FROM_CART,
+    payload: id
   }
 }
