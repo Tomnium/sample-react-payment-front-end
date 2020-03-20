@@ -17,11 +17,12 @@ const CartList = props => {
           </tr>
         </thead>
         <tbody>
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {props.products ? props.products.map((product, index) => {
+            return <CartItem key={index} product={product} />
+          }) : null}
         </tbody>
       </table>
+      <p className="CartList__price">Total Price: {props.total}</p>
     </div>
   )
 }

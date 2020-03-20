@@ -7,13 +7,13 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faTrashAlt);
 
-const CartItem = () => {
+const CartItem = props => {
   return (
       <tr className='cart-row'>
-        <td>Product</td>
-        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
-        <td>20</td>
-        <td>1</td>
+        <td>{props.product.product.title}</td>
+        <td>{props.product.product.description}</td>
+        <td>{props.product.product.price}</td>
+        <td>{props.product.quantity}</td>
         <td>
           <button className='btn btn-outline-danger' style={{borderWidth:0}}>
           <FontAwesomeIcon icon='trash-alt'/>
