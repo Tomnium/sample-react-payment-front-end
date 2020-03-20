@@ -1,5 +1,5 @@
 import { ActionType } from 'redux-promise-middleware';
-import { ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART } from '../constants/constants';
+import { ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART, CHECK_CART } from '../constants/constants';
 
 import { saveCart } from '../../helpers/cartStorage';
 
@@ -26,6 +26,12 @@ export function cartReducer(state = initialState, action) {
         idList: idList,
         totalPrice: state.totalPrice-(deleteProduct.product.price*deleteProduct.quantity),
         cartProducts: state.cartProducts.filter(product=>product!==deleteProduct)
+      }
+    }
+    case (CHECK_CART): {
+      return{
+        ...state,
+        idList:action.cartStorage
       }
     }
     case `${CART_PRODUCTS}_${ActionType.Pending}`: {

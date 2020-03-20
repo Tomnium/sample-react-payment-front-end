@@ -1,5 +1,6 @@
-import { PRODUCTS, ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART } from '../constants/constants';
+import { PRODUCTS, ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART, CHECK_CART } from '../constants/constants';
 import { getProducts, getProductsFromCart } from '../../services/services';
+import { getCart } from "../../helpers/cartStorage";
 
 export function productsRequest() {
   return {
@@ -26,5 +27,14 @@ export function deleteFromCart(id) {
   return {
     type: DELETE_FROM_CART,
     payload: id
+  }
+}
+
+export function checkCartStorage(){
+  let cartStorage = getCart();
+  if(cartStorage){
+      return function(dispatch){
+          dispatch({type:CHECK_CART, cartStorage});
+      }
   }
 }
