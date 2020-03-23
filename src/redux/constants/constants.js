@@ -15,3 +15,8 @@ export const FETCH_CART_PRODUCTS_FAILED = 'FETCH_CART_PRODUCTS_FAILED';
 export const SIGNUP = 'SIGNUP';
 
 export const LOGIN = 'LOGIN';
+
+export const LOGOUT = 'LOGOUT';
+
+export const CHECK_USER_TOKEN = 'CHECK_USER_TOKEN';
+export const CHECK_USER_TOKEN_FAILED = 'CHECK_USER_TOKEN_FAILED';

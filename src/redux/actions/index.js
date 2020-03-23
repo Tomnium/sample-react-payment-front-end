@@ -1,6 +1,7 @@
-import { PRODUCTS, ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART, CHECK_CART, SIGNUP, LOGIN } from '../constants/constants';
+import { PRODUCTS, ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART, CHECK_CART, SIGNUP, LOGIN, LOGOUT_SUCCESS, CHECK_USER_TOKEN, CHECK_USER_TOKEN_FAILED, LOGOUT } from '../constants/constants';
 import { getProducts, getProductsFromCart, setRegistration, setLogin } from '../../services/services';
-import { getCart } from "../../helpers/cartStorage";
+import { getCart, removeCart } from "../../helpers/cartStorage";
+import { setAuthHeader, removeToken } from "../../helpers/apiClient";
 
 export function productsRequest() {
   return {
@@ -33,9 +34,14 @@ export function deleteFromCart(id) {
 export function checkCartStorage(){
   let cartStorage = getCart();
   if(cartStorage){
-      return function(dispatch){
-          dispatch({type:CHECK_CART, cartStorage});
-      }
+    return function(dispatch){
+      dispatch({type:CHECK_CART, cartStorage});
+    }
+  } else {
+    return {
+      type: null,
+      payload: null
+    }
   }
 }
 
@@ -51,4 +57,26 @@ export function logIn(email, password){
     type: LOGIN,
     payload: setLogin(email, password)
   };
+}
+
+export function logOut() {
+  removeToken();
+  removeCart();
+  return {
+    type: LOGOUT
+  };
+}
+
+export function checkIsLogin() {
+  let token = localStorage.getItem('UserToken');
+  if(token){
+    setAuthHeader(token);
+    return function(dispatch){
+      dispatch({type: CHECK_USER_TOKEN});
+    }
+  } else {
+    return function(dispatch){
+      dispatch({type: CHECK_USER_TOKEN_FAILED});
+    }
+  }
 }

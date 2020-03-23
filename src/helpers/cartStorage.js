@@ -5,3 +5,7 @@ export const saveCart = cart => {
 export function getCart(){
   return JSON.parse(localStorage.getItem('cart'));
 }
+
+export function removeCart(){
+  localStorage.removeItem('cart');
+}

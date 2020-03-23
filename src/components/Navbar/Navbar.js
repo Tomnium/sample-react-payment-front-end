@@ -1,7 +1,8 @@
 import React from 'react';
 import './Navbar.scss';
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { logOut } from '../../redux/actions';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +11,7 @@ import { faShoppingCart, faSignInAlt, faUserCircle, faSignOutAlt} from '@fortawe
 library.add(faShoppingCart, faSignInAlt, faUserCircle, faSignOutAlt);
 
 function Navbar() {
+  const dispatch = useDispatch();
   const idList = useSelector(state => state.cart.idList);
   const isLogin = useSelector(state => state.auth.isLogin);
 
@@ -39,7 +41,7 @@ function Navbar() {
                 <Link className="nav-link" to={`/sign-in`}>SignIn <FontAwesomeIcon icon='sign-in-alt'/></Link>
               </li> :
               <li className="nav-item">
-                <Link className="nav-link" to={`/`} alt='LogOut'>Logout <FontAwesomeIcon icon='sign-out-alt'/></Link>
+                <Link className="nav-link" to={`/`} onClick={() => dispatch(logOut())} alt='LogOut'>Logout <FontAwesomeIcon icon='sign-out-alt'/></Link>
               </li>
             }
             {

@@ -7,4 +7,17 @@ let apiClient = axios.create({
   }
 });
 
+export function setAuthHeader(token) {
+  try {
+    localStorage.setItem('UserToken', token);
+  } catch (error) {
+    throw(error);
+  }
+  apiClient.defaults.headers.common['x-access-token'] = token;
+}
+
+export function removeToken() {
+  localStorage.removeItem('UserToken');
+}
+
 export default apiClient;
