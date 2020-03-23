@@ -11,11 +11,13 @@ import logger from 'redux-logger';
 import { cartReducer } from './redux/reducers/cartReducer';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
+import { authReducer } from './redux/reducers/authReducer';
 
 const reducers = {
   form: formReducer,
   products: productReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  auth: authReducer
 };
 
 const rootReducer = combineReducers(reducers);
