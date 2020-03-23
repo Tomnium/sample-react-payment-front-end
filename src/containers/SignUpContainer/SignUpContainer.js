@@ -7,7 +7,7 @@ const SignUpContainer = props => {
   const dispatch = useDispatch();
   const submit = form => {
     dispatch(signUp(form.username, form.email, form.password));
-    // console.log(form.username, form.email, form.password)
+    props.history.push('/sign-in');
   }
 
   return (

@@ -61,7 +61,8 @@ let SignUp = props => {
 }
 
 SignUp = reduxForm ({
-  form: 'registration'
+  form: 'registration',
+  enableReinitialize: true
 }) (SignUp);
 
 export default SignUp;

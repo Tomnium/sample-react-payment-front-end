@@ -1,5 +1,5 @@
 import { ActionType } from 'redux-promise-middleware';
-import { SIGNUP } from '../constants/constants';
+import { SIGNUP, LOGIN } from '../constants/constants';
 
 const initialState = {
   isLogin: false,
@@ -29,6 +29,27 @@ export function authReducer(state = initialState, action) {
         ...state,
         registerIn: false,
         registerError: action.error
+      }
+    }
+    case `${LOGIN}_${ActionType.Pending}`: {
+      return {
+        ...state,
+        loggingIn: true
+      }
+    }
+    case `${LOGIN}_${ActionType.Fulfilled}`: {
+      return {
+        ...state,
+        loggingIn: false,
+        isLogin: true,
+        loginError: false
+      }
+    }
+    case `${LOGIN}_${ActionType.Rejected}`: {
+      return {
+        ...state,
+        loggingIn: false,
+        loginError: action.error
       }
     }
     default: return state;

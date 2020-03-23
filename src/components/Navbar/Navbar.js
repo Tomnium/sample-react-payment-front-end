@@ -11,6 +11,7 @@ library.add(faShoppingCart, faSignInAlt, faUserCircle, faSignOutAlt);
 
 function Navbar() {
   const idList = useSelector(state => state.cart.idList);
+  const isLogin = useSelector(state => state.auth.isLogin);
 
   const counter = () => {
     let amount = 0;
@@ -32,12 +33,22 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link" to={`/sign-in`}>SignIn <FontAwesomeIcon icon='sign-in-alt'/></Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to={`/sign-up`}>SignUp <FontAwesomeIcon icon='user-circle'/></Link>
-            </li>
+            {
+              !isLogin ?
+              <li className="nav-item">
+                <Link className="nav-link" to={`/sign-in`}>SignIn <FontAwesomeIcon icon='sign-in-alt'/></Link>
+              </li> :
+              <li className="nav-item">
+                <Link className="nav-link" to={`/`} alt='LogOut'>Logout <FontAwesomeIcon icon='sign-out-alt'/></Link>
+              </li>
+            }
+            {
+              !isLogin ?
+              <li className="nav-item">
+                <Link className="nav-link" to={`/sign-up`}>SignUp <FontAwesomeIcon icon='user-circle'/></Link>
+              </li>
+              : null
+            }
             <li className="nav-item">
               <Link className="nav-link" to={`/cart`}><FontAwesomeIcon icon='shopping-cart'/>{counter()?<span className="circle">{counter()}</span>:null}</Link>
             </li>

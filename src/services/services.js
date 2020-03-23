@@ -17,6 +17,13 @@ export const setRegistration = (username, email, password) => {
     email: email,
     password: password
   }
-  console.log(body);
   return apiClient.post(`api/auth/signup`, body)
+}
+
+export const setLogin = (email, password) => {
+  let body = {
+    email: email,
+    password: password
+  }
+  return apiClient.post(`api/auth/login`, body)
 }

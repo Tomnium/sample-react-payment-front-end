@@ -1,5 +1,5 @@
-import { PRODUCTS, ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART, CHECK_CART, SIGNUP } from '../constants/constants';
-import { getProducts, getProductsFromCart, setRegistration } from '../../services/services';
+import { PRODUCTS, ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART, CHECK_CART, SIGNUP, LOGIN } from '../constants/constants';
+import { getProducts, getProductsFromCart, setRegistration, setLogin } from '../../services/services';
 import { getCart } from "../../helpers/cartStorage";
 
 export function productsRequest() {
@@ -11,8 +11,8 @@ export function productsRequest() {
 
 export function addToCart(productId){
   return {
-      type: ADD_TO_CART,
-      payload: productId
+    type: ADD_TO_CART,
+    payload: productId
   };
 }
 
@@ -41,7 +41,14 @@ export function checkCartStorage(){
 
 export function signUp(username, email, password){
   return {
-      type: SIGNUP,
-      payload: setRegistration(username, email, password)
+    type: SIGNUP,
+    payload: setRegistration(username, email, password)
+  };
+}
+
+export function logIn(email, password){
+  return {
+    type: LOGIN,
+    payload: setLogin(email, password)
   };
 }

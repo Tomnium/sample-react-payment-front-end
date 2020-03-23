@@ -10,11 +10,11 @@ import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faSignInAlt);
 
-let LogIn = () => {
+let LogIn = props => {
   return(
     <div className="LogIn">
       <div className='card-title'>Log In</div>
-      <form>
+      <form onSubmit={props.handleSubmit}>
         <div className="form-group">
           <Field
             name="email"
@@ -52,6 +52,7 @@ let LogIn = () => {
 
 LogIn = reduxForm ({
   form: 'login',
+  enableReinitialize: true
 }) (LogIn);
 
 export default LogIn;
