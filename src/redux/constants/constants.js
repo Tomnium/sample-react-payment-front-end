@@ -20,3 +20,5 @@ export const LOGOUT = 'LOGOUT';
 
 export const CHECK_USER_TOKEN = 'CHECK_USER_TOKEN';
 export const CHECK_USER_TOKEN_FAILED = 'CHECK_USER_TOKEN_FAILED';
+
+export const PAY = 'PAY';

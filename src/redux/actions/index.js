@@ -1,5 +1,5 @@
-import { PRODUCTS, ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART, CHECK_CART, SIGNUP, LOGIN, LOGOUT_SUCCESS, CHECK_USER_TOKEN, CHECK_USER_TOKEN_FAILED, LOGOUT } from '../constants/constants';
-import { getProducts, getProductsFromCart, setRegistration, setLogin } from '../../services/services';
+import { PRODUCTS, ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART, CHECK_CART, SIGNUP, LOGIN, CHECK_USER_TOKEN, CHECK_USER_TOKEN_FAILED, LOGOUT, PAY } from '../constants/constants';
+import { getProducts, getProductsFromCart, setRegistration, setLogin, setPay } from '../../services/services';
 import { getCart, removeCart } from "../../helpers/cartStorage";
 import { setAuthHeader, removeToken } from "../../helpers/apiClient";
 
@@ -78,5 +78,12 @@ export function checkIsLogin() {
     return function(dispatch){
       dispatch({type: CHECK_USER_TOKEN_FAILED});
     }
+  }
+}
+
+export function pay(idList, amount, description, token) {
+  return {
+    type: PAY,
+    payload: setPay(idList, amount, description, token)
   }
 }

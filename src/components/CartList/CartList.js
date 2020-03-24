@@ -1,8 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom'
 import './CartList.scss';
 import CartItem from './CartItem/CartItem';
+import Checkout from '../Checkout/Checkout';
 
 const CartList = props => {
+  const isLogin = useSelector(state => state.auth.isLogin);
   return (
     <div className="CartList">
       <div className="card-title">Shopping cart:</div>
@@ -23,6 +27,21 @@ const CartList = props => {
         </tbody>
       </table>
       <p className="CartList__price">Total Price: {props.total}</p>
+      {
+        isLogin ?
+        <Checkout 
+          name={'Payment'}
+          description={'Products Pay'}
+          amount={props.total}
+        /> :
+        <div className='auth-alert'>
+          Login for payment
+          <div className="links">
+            <Link to='/signIn'>LogIn</Link> /
+            <Link to='/signUp'>Register</Link>
+          </div>
+        </div>
+      }
     </div>
   )
 }
