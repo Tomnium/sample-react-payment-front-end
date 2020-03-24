@@ -35,10 +35,10 @@ const CartList = props => {
           amount={props.total}
         /> :
         <div className='auth-alert'>
-          Login for payment
+          <span>Login for payment</span>
           <div className="links">
-            <Link to='/signIn'>LogIn</Link> /
-            <Link to='/signUp'>Register</Link>
+            <Link to='/sign-in'>LogIn</Link> / 
+            <Link to='/sign-up'>Register</Link>
           </div>
         </div>
       }

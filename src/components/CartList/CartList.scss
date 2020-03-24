@@ -16,3 +16,17 @@
 .CartList__price {
   font-weight: 500;
 }
+
+.CartList .links {
+  display: flex;
+  width: rem(120);
+  justify-content: space-between;
+}
+
+.CartList .auth-alert span {
+  font-size: rem(20);
+}
+
+.CartList .links a {
+  display: block;
+}
