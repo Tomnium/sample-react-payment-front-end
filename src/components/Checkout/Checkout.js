@@ -18,9 +18,7 @@ const Checkout = props => {
       amount={fromUahToCop(props.amount)}
       currency={CURRENCY}
       stripeKey={STRIPE_PUBLISHABLE}
-      token={
-        (token) => dispatch(pay(idList, props.amount, props.description, token)).then(props.history.push('/'))
-      }
+      token={(token) => dispatch(pay(idList, props.amount, props.description, token)).then(props.history.push('/'))}
     />
   )
 }
