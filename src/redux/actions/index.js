@@ -35,7 +35,7 @@ export function checkCartStorage(){
   let cartStorage = getCart();
   if(cartStorage){
     return function(dispatch){
-      dispatch({type:CHECK_CART, cartStorage});
+      dispatch({type: CHECK_CART, cartStorage});
     }
   } else {
     return {

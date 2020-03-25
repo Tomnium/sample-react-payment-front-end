@@ -1,6 +1,5 @@
 import { ActionType } from 'redux-promise-middleware';
 import { SIGNUP, LOGIN, LOGOUT, CHECK_USER_TOKEN, CHECK_USER_TOKEN_FAILED } from '../constants/constants';
-import { setAuthHeader, removeToken } from '../../helpers/apiClient';
 
 const initialState = {
   isLogin: false,
@@ -39,7 +38,6 @@ export function authReducer(state = initialState, action) {
       }
     }
     case `${LOGIN}_${ActionType.Fulfilled}`: {
-      setAuthHeader(action.payload.data.token);
       return {
         ...state,
         loggingIn: false,
@@ -55,7 +53,6 @@ export function authReducer(state = initialState, action) {
       }
     }
     case LOGOUT: {
-      removeToken()
       return {
         ...state,
         isLogin: false

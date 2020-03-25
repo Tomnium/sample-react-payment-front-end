@@ -11,11 +11,9 @@ const initialState={
 export function cartReducer(state = initialState, action) {
   switch (action.type){
     case (ADD_TO_CART): {
-      let idList = {...state.idList, [action.payload]: (state.idList[action.payload] || 0) + 1};
-      saveCart(idList);
       return {
         ...state,
-        idList: idList
+        idList: {...state.idList, [action.payload]: (state.idList[action.payload] || 0) + 1}
       }
     }
     case (DELETE_FROM_CART): {
@@ -32,7 +30,7 @@ export function cartReducer(state = initialState, action) {
     case (CHECK_CART): {
       return{
         ...state,
-        idList:action.cartStorage
+        idList: action.cartStorage
       }
     }
     case `${CART_PRODUCTS}_${ActionType.Pending}`: {
