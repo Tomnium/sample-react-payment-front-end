@@ -1,4 +1,4 @@
-import apiClient from '../helpers/apiClient';
+import apiClient, { setAuthHeader } from '../helpers/apiClient';
 import { CURRENCY } from '../helpers/stripeConfig';
 import { removeCart } from "../helpers/cartStorage";
 
@@ -27,7 +27,7 @@ export const setLogin = (email, password) => {
     email: email,
     password: password
   }
-  return apiClient.post(`api/auth/login`, body)
+  return apiClient.post(`api/auth/login`, body).then(({data}) => setAuthHeader(data.token))
 }
 
 export const setPay = (idList, amount, description, token) => {
