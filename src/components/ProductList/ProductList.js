@@ -3,7 +3,7 @@ import './ProductList.scss';
 import ProductItem from '../ProductItem/ProductItem';
 import { useSelector } from 'react-redux';
 
-export default function ProductList() {
+const ProductList = () => {
   const products = useSelector(state => state.products.products);
   return (
     <div className="ProductList">
@@ -26,3 +26,5 @@ export default function ProductList() {
     </div>
   )
 }
+
+export default ProductList;

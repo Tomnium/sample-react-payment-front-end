@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Navbar.scss';
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from '../../redux/actions';
+import { saveCart } from '../../helpers/cartStorage';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,10 +11,16 @@ import { faShoppingCart, faSignInAlt, faUserCircle, faSignOutAlt} from '@fortawe
 
 library.add(faShoppingCart, faSignInAlt, faUserCircle, faSignOutAlt);
 
-function Navbar() {
+const Navbar = () => {
   const dispatch = useDispatch();
   const idList = useSelector(state => state.cart.idList);
   const isLogin = useSelector(state => state.auth.isLogin);
+
+  useEffect(() => {
+    if(Object.keys(idList).length !== 0) {
+      saveCart(idList);
+    }
+  })
 
   const counter = () => {
     let amount = 0;

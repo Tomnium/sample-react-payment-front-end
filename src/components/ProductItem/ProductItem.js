@@ -10,12 +10,10 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 library.add(faCartPlus);
 
 const ProductItem = props => {
-
   const dispatch = useDispatch();
   
   function handleAddToCart(id) {
     dispatch(addToCart(id));
-  
   }
   return (
     <div className="ProductItem">
