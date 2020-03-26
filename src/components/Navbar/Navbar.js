@@ -22,16 +22,10 @@ const Navbar = () => {
     }
   })
 
-  const counter = () => {
-    let amount = 0;
-    Object.keys(idList).map( id => { 
-      if(idList[id]) {
-        amount += idList[id]
-      }
-      return null
-    });
-    return amount;
-  }
+  const counter = idList => 
+    Object.values(idList).reduce((sum, cur) => {
+        return sum + cur
+    }, 0);
 
   const logOutHandler = () => {
     dispatch(logOut());
@@ -63,7 +57,7 @@ const Navbar = () => {
               : null
             }
             <li className="nav-item">
-              <Link className="nav-link" to={`/cart`}><FontAwesomeIcon icon='shopping-cart'/>{counter()?<span className="circle">{counter()}</span>:null}</Link>
+              <Link className="nav-link" to={`/cart`}><FontAwesomeIcon icon='shopping-cart'/>{counter(idList)?<span className="circle">{counter(idList)}</span>:null}</Link>
             </li>
           </ul>
         </div>
