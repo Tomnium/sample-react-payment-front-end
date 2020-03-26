@@ -24,10 +24,14 @@ export function getCartProducts(idList) {
   }
 }
 
-export function deleteFromCart(id) {
+export function deleteFromCart(id, products, list) {
+  const idList = list;
+  delete idList[id];
   return {
     type: DELETE_FROM_CART,
-    payload: id
+    deleteProduct: products.find(el => el.product._id === id),
+    idList: idList,
+    cartProducts: products
   }
 }
 

@@ -1,8 +1,6 @@
 import { ActionType } from 'redux-promise-middleware';
 import { ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART, CHECK_CART, PAY } from '../constants/constants';
-import { successPayment, errorPayment } from '../../services/services'
-import { cloneDeep } from 'lodash';
-
+import { successPayment, errorPayment } from '../../services/services';
 import { saveCart } from '../../helpers/cartStorage';
 
 const initialState={
@@ -18,15 +16,12 @@ export function cartReducer(state = initialState, action) {
       }
     }
     case (DELETE_FROM_CART): {
-      const deleteProduct = state.cartProducts.find(el => el.product._id === action.payload);
-      const idList = cloneDeep(state.idList);
-      delete idList[action.payload];
-      saveCart(idList);
       return {
         ...state,
-        idList: idList,
-        totalPrice: state.totalPrice-(deleteProduct.product.price*deleteProduct.quantity),
-        cartProducts: state.cartProducts.filter(product=>product!==deleteProduct)
+        idList: action.idList,
+        totalPrice: state.totalPrice-(action.deleteProduct.product.price * action.deleteProduct.quantity),
+        cartProducts: action.cartProducts.filter(product=>product !== action.deleteProduct),
+        saveCart: saveCart(action.idList)
       }
     }
     case (CHECK_CART): {
