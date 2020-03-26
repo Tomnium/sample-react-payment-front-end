@@ -15,6 +15,10 @@ const CartItem = props => {
   const products = useSelector(state => state.cart.cartProducts);
   const idList = cloneDeep(useSelector(state => state.cart.idList));
 
+  const deleteHandler = (id, products, idList) => {
+    dispatch(deleteFromCart(id, products, idList));
+  }
+
   return (
       <tr className='cart-row'>
         <td>{props.product.product.title}</td>
@@ -22,7 +26,7 @@ const CartItem = props => {
         <td>{props.product.product.price}</td>
         <td>{props.product.quantity}</td>
         <td>
-          <button className='btn btn-outline-danger' onClick={() => dispatch(deleteFromCart(props.id, products, idList))} style={{borderWidth:0}}>
+          <button className='btn btn-outline-danger' onClick={() => deleteHandler(props.id, products, idList)} style={{borderWidth:0}}>
             <FontAwesomeIcon icon='trash-alt'/>
           </button>
         </td>

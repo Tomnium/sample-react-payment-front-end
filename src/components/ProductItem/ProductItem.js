@@ -12,9 +12,10 @@ library.add(faCartPlus);
 const ProductItem = props => {
   const dispatch = useDispatch();
   
-  function handleAddToCart(id) {
+  const handleAddToCart = id => {
     dispatch(addToCart(id));
   }
+  
   return (
     <div className="ProductItem">
       <div className="card-content">

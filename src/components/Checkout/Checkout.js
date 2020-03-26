@@ -11,6 +11,10 @@ const Checkout = props => {
 
   const fromUahToCop = amount => amount * 100;
 
+  const payHandler = token => {
+    dispatch(pay(idList, props.amount, props.description, token)).then(props.history.push('/'));
+  }
+
   return (
     <StripeCheckout 
       name={props.name}
@@ -18,7 +22,7 @@ const Checkout = props => {
       amount={fromUahToCop(props.amount)}
       currency={CURRENCY}
       stripeKey={STRIPE_PUBLISHABLE}
-      token={(token) => dispatch(pay(idList, props.amount, props.description, token)).then(props.history.push('/'))}
+      token={(token) => payHandler(token)}
     />
   )
 }

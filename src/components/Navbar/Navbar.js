@@ -33,6 +33,10 @@ const Navbar = () => {
     return amount;
   }
 
+  const logOutHandler = () => {
+    dispatch(logOut());
+  }
+
   return (
     <div className="Navbar">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -48,7 +52,7 @@ const Navbar = () => {
                 <Link className="nav-link" to={`/sign-in`}>SignIn <FontAwesomeIcon icon='sign-in-alt'/></Link>
               </li> :
               <li className="nav-item">
-                <Link className="nav-link" to={`/`} onClick={() => dispatch(logOut())} alt='LogOut'>Logout <FontAwesomeIcon icon='sign-out-alt'/></Link>
+                <Link className="nav-link" to={`/`} onClick={() => logOutHandler()} alt='LogOut'>Logout <FontAwesomeIcon icon='sign-out-alt'/></Link>
               </li>
             }
             {

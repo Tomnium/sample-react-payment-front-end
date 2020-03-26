@@ -9,9 +9,11 @@ const CartContainer = () => {
   const cartProducts = useSelector(state => state.cart.cartProducts);
   const totalPrice = useSelector(state => state.cart.totalPrice);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getCartProducts(productsId))
   }, [dispatch, productsId]);
+  
   return (
     <Fragment>
       {

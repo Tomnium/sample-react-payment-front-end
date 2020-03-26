@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import { productsRequest } from '../../redux/actions/index';
 
 const HomeContainer = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(productsRequest())
   }, [dispatch]);
