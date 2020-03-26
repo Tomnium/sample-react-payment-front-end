@@ -36,7 +36,7 @@ export function deleteFromCart(id, products, list) {
 }
 
 export function checkCartStorage(){
-  let cartStorage = getCart();
+  const cartStorage = getCart();
   if(cartStorage){
     return function(dispatch){
       dispatch({type: CHECK_CART, cartStorage});
@@ -72,7 +72,7 @@ export function logOut() {
 }
 
 export function checkIsLogin() {
-  let token = localStorage.getItem('UserToken');
+  const token = localStorage.getItem('UserToken');
   if(token){
     setAuthHeader(token);
     return function(dispatch){

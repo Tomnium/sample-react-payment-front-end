@@ -7,14 +7,14 @@ export const getProducts = () => {
 }
 
 export const getProductsFromCart = idList => {
-  let body = {
+  const body = {
     idList
   }
   return apiClient.post('api/product/getCarts', body)
 }
 
 export const setRegistration = (username, email, password) => {
-  let body = {
+  const body = {
     username: username,
     email: email,
     password: password
@@ -23,7 +23,7 @@ export const setRegistration = (username, email, password) => {
 }
 
 export const setLogin = (email, password) => {
-  let body = {
+  const body = {
     email: email,
     password: password
   }
@@ -31,7 +31,7 @@ export const setLogin = (email, password) => {
 }
 
 export const setPay = (idList, amount, description, token) => {
-  let body = {
+  const body = {
     payment_info: {
       description,
       source: token.id,
