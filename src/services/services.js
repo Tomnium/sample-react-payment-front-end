@@ -40,7 +40,7 @@ export const setPay = (idList, amount, description, token) => {
     },
     idList
   }
-  return apiClient.post(`api/pay/test`, body)
+  return apiClient.post(`api/pay/test`, body).then(() => successPayment()).catch(err => errorPayment(err))
 }
 
 export const successPayment = () => {
@@ -48,6 +48,6 @@ export const successPayment = () => {
   removeCart();
 };
 
-export const errorPayment = () => {
-  alert('Payment Error');
+export const errorPayment = err => {
+  alert('Payment Error:', err);
 };

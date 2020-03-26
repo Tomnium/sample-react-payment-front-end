@@ -1,6 +1,5 @@
 import { ActionType } from 'redux-promise-middleware';
 import { ADD_TO_CART, CART_PRODUCTS, DELETE_FROM_CART, CHECK_CART, PAY } from '../constants/constants';
-import { successPayment, errorPayment } from '../../services/services';
 import { saveCart } from '../../helpers/cartStorage';
 
 const initialState={
@@ -54,7 +53,6 @@ export function cartReducer(state = initialState, action) {
       }
     }
     case `${PAY}_${ActionType.Fulfilled}`: {
-      successPayment();
       return {
         ...state,
         isPay: false,
@@ -64,7 +62,6 @@ export function cartReducer(state = initialState, action) {
       }
     }
     case `${PAY}_${ActionType.Rejected}`: {
-      errorPayment();
       return {
         ...state,
         isPay: false
